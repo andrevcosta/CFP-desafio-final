@@ -15,7 +15,7 @@ export default function App() {
   const [insertModal, setInsertModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
 
-  const URL = 'http://localhost:3001/api/transaction';
+  const URL = process.env.REACT_APP_API_URL;
   const PERIOD_URL = `${URL}?period=${currentPeriod}`;
 
   useEffect(() => {

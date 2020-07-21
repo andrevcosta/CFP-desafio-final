@@ -39,10 +39,7 @@ export default function Transactions(props) {
   return (
     <div>
       <div style={styles.flexRow}>
-        <button
-          className="waves-effect waves-light btn"
-          onClick={handleInsertClick}
-        >
+        <button className="waves-light btn" onClick={handleInsertClick}>
           + NOVO LANÇAMENTO
         </button>
 

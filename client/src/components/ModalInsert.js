@@ -75,11 +75,13 @@ export default function ModalInsert(props) {
   };
   const handleDateChange = (event) => {
     setYearMonthDay(event.target.value);
+    /*Passando 00:00:00 (hora) junto ao event.target.value para corrigar o erro da timezone GMT
+    Como a GMT é 3 horas atrasada o valor do dia era retornado como o dia anterior */
+    const dateValue = new Date(`${event.target.value} 00:00:00`);
 
-    const dateValue = new Date(event.target.value);
     const year = dateValue.getFullYear();
     const month = dateValue.getMonth() + 1;
-    const day = dateValue.getDate() + 1;
+    const day = dateValue.getDate();
 
     setYearMonth(`${year}-${month.toString().padStart(2, '0')}`);
     setYear(year);
@@ -122,7 +124,7 @@ export default function ModalInsert(props) {
             className=" btn-small red darken-4"
             onClick={handleModalClose}
           >
-            <i class="material-icons">close</i>
+            <i className="material-icons">close</i>
           </button>
         </div>
 
